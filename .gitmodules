@@ -1,0 +1,3 @@
+[submodule "dependencies/dataStructures"]
+	path = dependencies/dataStructures
+	url = https://github.com/LoghinVladDev/customDataStructures
