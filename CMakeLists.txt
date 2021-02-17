@@ -10,6 +10,14 @@ set(REQUIRED_LIBS_QUALIFIED Qt6::Core Qt6::Gui Qt6::Widgets)
 
 find_package(Qt${QT_VERSION} COMPONENTS ${REQUIRED_LIBS})
 
+add_subdirectory(dependencies/dataStructures)
+include_directories(dependencies/dataStructures/src)
+include_directories(dependencies/dataStructures/src/collection)
+include_directories(dependencies/dataStructures/src/collection/ordered)
+include_directories(dependencies/dataStructures/src/collection/unordered)
+include_directories(dependencies/dataStructures/src/exception)
+include_directories(dependencies/dataStructures/src/primitive)
+
 if(Qt${QT_VERSION}_FOUND)
 
     set(CMAKE_AUTOMOC ON)
