@@ -24,7 +24,29 @@ if(Qt${QT_VERSION}_FOUND)
     set(CMAKE_AUTORCC ON)
     set(CMAKE_AUTOUIC ON)
 
-    add_executable(${PROJECT_NAME} main.cpp)
+    set(
+            GUI_DIRS
+            src/gui
+            src/gui/frame
+            src/gui/panel
+            src/gui/component
+            src/gui/abstract
+    )
+
+    set(
+            GUI_SRC
+            src/gui/frame/AppWindow.cpp
+            src/gui/frame/AppWindow.h
+            src/gui/panel/LabSelectorPanel.cpp
+            src/gui/panel/LabSelectorPanel.h
+            src/gui/abstract/DrawableContainer.h
+            src/gui/component/LabListItem.cpp
+            src/gui/component/LabListItem.h
+            src/gui/settings/Settings.cpp src/gui/settings/Settings.h)
+
+    include_directories(${GUI_DIRS})
+
+    add_executable(${PROJECT_NAME} main.cpp ${GUI_SRC} dependencies/dataStructures/src/primitive/String.cpp)
 
     if (NOT CMAKE_PREFIX_PATH)
         message(WARNING "CMAKE_PREFIX_PATH is not defined, you may need to set it "
